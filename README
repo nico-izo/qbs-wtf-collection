@@ -1,0 +1,31 @@
+$ qbs --version
+1.4.2
+
+
+$ qbs resolve -n -f qbsbug.qbs profile:qt-5-4-ololo
+No build graph exists yet for this configuration.
+Resolving project for configuration qt-5-4-ololo-debug
+We are inside Product's Depends block, name section
+[CommonModule.condition] =  false
+purple.present ==  false
+PkgConfigProbe: found library purple
+purple.present ==  false
+purple.present ==  false
+Setting up build graph for configuration qt-5-4-ololo-debug
+
+
+
+$ qbs resolve -n -f qbsbug.qbs profile:qt-5-4-ololo project.pkgInPlace:true
+No build graph exists yet for this configuration.
+Resolving project for configuration qt-5-4-ololo-debug
+We are inside Product's Depends block, name section
+[CommonModule.condition] =  false
+purple.present ==  false
+purple Pkg test ==  false
+PkgConfigProbe: found library purple
+purple.present ==  false
+purple Pkg test ==  true
+purple.present ==  false
+purple Pkg test ==  true
+Setting up build graph for configuration qt-5-4-ololo-debug
+
