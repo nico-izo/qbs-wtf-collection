@@ -2,7 +2,7 @@ import qbs.base 1.0
 import "../imports/probes/SomeRandomProbe.qbs" as SomeRandomProbe
 
 Module {
-    property string probeName
+    property string moduleName
 
     Depends { name: "cpp" }
 
@@ -10,11 +10,11 @@ Module {
         id: probe
 
         condition: {
-            var simpleCondition = typeof probeName !== "undefined"
+            var simpleCondition = typeof moduleName !== "undefined"
             print("[CommonModule.probe.condition]", simpleCondition)
             return simpleCondition
         }
-        name: probeName
+        probeName: moduleName
     }
     
     condition: {
