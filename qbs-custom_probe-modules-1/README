@@ -1,0 +1,30 @@
+WITHOUT WORKAROUND (see SomeRandomProbe.qbs for more info)
+
+$ qbs resolve -n -f qbsbug.qbs profile:qt-5-4-ololo
+No build graph exists yet for this configuration.
+Resolving project for configuration qt-5-4-ololo-debug
+We are inside Product's Depends block, name section
+[CommonModule.condition] =  false
+some_great_lib.present ==  false
+some_great_lib.present ==  false
+some_great_lib.present ==  false
+Setting up build graph for configuration qt-5-4-ololo-debug
+
+WITH WORKAROUND
+
+$ qbs resolve -n -f qbsbug.qbs profile:qt-5-4-ololo
+No build graph exists yet for this configuration.
+Resolving project for configuration qt-5-4-ololo-debug
+We are inside Product's Depends block, name section
+[CommonModule.condition] =  undefined
+[CommonModule.probe.condition] false
+[SomeRandomProbe] found = true
+[SomeRandomProbe] probeName = undefined
+some_great_lib.present ==  true
+some_great_lib.present ==  true
+[CommonModule.Properties] Some useful stuff here
+[CommonModule.Props...] 1,2,3
+[CommonModule.condition] =  true
+CommonModule some_great_lib
+some_great_lib.present ==  true
+Setting up build graph for configuration qt-5-4-ololo-debug
