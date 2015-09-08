@@ -6,8 +6,13 @@ Resolving project for configuration qt-5-4-ololo-debug
 We are inside Product's Depends block, name section
 [CommonModule.condition] =  false
 some_great_lib.present ==  false
+ololo1 using same Probe, but directly:  false
+[SomeRandomProbe] found =  true
+[SomeRandomProbe] probeName = ololo1
 some_great_lib.present ==  false
+ololo1 using same Probe, but directly:  true
 some_great_lib.present ==  false
+ololo1 using same Probe, but directly:  true
 Setting up build graph for configuration qt-5-4-ololo-debug
 
 WITH WORKAROUND
@@ -18,13 +23,18 @@ Resolving project for configuration qt-5-4-ololo-debug
 We are inside Product's Depends block, name section
 [CommonModule.condition] =  undefined
 [CommonModule.probe.condition] false
-[SomeRandomProbe] found = true
+[SomeRandomProbe] found =  false
 [SomeRandomProbe] probeName = undefined
 some_great_lib.present ==  true
+ololo1 using same Probe, but directly:  undefined
+[SomeRandomProbe] found =  true
+[SomeRandomProbe] probeName = ololo1
 some_great_lib.present ==  true
+ololo1 using same Probe, but directly:  true
 [CommonModule.Properties] Some useful stuff here
-[CommonModule.Props...] 1,2,3
-[CommonModule.condition] =  true
+[CommonModule.condition] =  false
 CommonModule some_great_lib
 some_great_lib.present ==  true
+ololo1 using same Probe, but directly:  true
 Setting up build graph for configuration qt-5-4-ololo-debug
+
