@@ -1,40 +1,68 @@
-WITHOUT WORKAROUND (see SomeRandomProbe.qbs for more info)
+All default lines skipped for better readability
 
+
+WITHOUT WORKAROUND (see SomeRandomProbe.qbs for more info)
+AND WITH probe.found = true
 $ qbs resolve -n -f qbsbug.qbs profile:qt-5-4-ololo
-No build graph exists yet for this configuration.
-Resolving project for configuration qt-5-4-ololo-debug
 We are inside Product's Depends block, name section
 [CommonModule.condition] =  false
 some_great_lib.present ==  false
-ololo1 using same Probe, but directly:  false
-[SomeRandomProbe] found =  true
-[SomeRandomProbe] probeName = ololo1
 some_great_lib.present ==  false
-ololo1 using same Probe, but directly:  true
 some_great_lib.present ==  false
-ololo1 using same Probe, but directly:  true
-Setting up build graph for configuration qt-5-4-ololo-debug
+
+
+
+WITHOUT WORKAROUND (see SomeRandomProbe.qbs for more info)
+AND WITH probe.found = false
+$ qbs resolve -n -f qbsbug.qbs profile:qt-5-4-ololo
+We are inside Product's Depends block, name section
+[CommonModule.condition] =  false
+some_great_lib.present ==  false
+some_great_lib.present ==  false
+some_great_lib.present ==  false
+
+
 
 WITH WORKAROUND
-
+AND WITH probe.found = true
 $ qbs resolve -n -f qbsbug.qbs profile:qt-5-4-ololo
-No build graph exists yet for this configuration.
-Resolving project for configuration qt-5-4-ololo-debug
 We are inside Product's Depends block, name section
 [CommonModule.condition] =  undefined
-[CommonModule.probe.condition] false
-[SomeRandomProbe] found =  false
-[SomeRandomProbe] probeName = undefined
-some_great_lib.present ==  true
-ololo1 using same Probe, but directly:  undefined
+CommonModule some_great_lib
+CommonModule some_great_lib
+[CommonModule.probe.condition] true
+CommonModule some_great_lib
 [SomeRandomProbe] found =  true
-[SomeRandomProbe] probeName = ololo1
+[SomeRandomProbe] probeName = some_great_lib
 some_great_lib.present ==  true
-ololo1 using same Probe, but directly:  true
+some_great_lib.present ==  true
 [CommonModule.Properties] Some useful stuff here
+[CommonModule.Properties] Probe.found: true
+[CommonModule.Props...] 1,2,3
+[CommonModule.condition] =  true
+CommonModule some_great_lib
+some_great_lib.present ==  true
+
+
+
+
+WITH WORKAROUND
+AND WITH probe.found = false
+$ qbs resolve -n -f qbsbug.qbs profile:qt-5-4-ololo
+We are inside Product's Depends block, name section
+[CommonModule.condition] =  undefined
+CommonModule some_great_lib
+CommonModule some_great_lib
+[CommonModule.probe.condition] true
+CommonModule some_great_lib
+[SomeRandomProbe] found =  false
+[SomeRandomProbe] probeName = some_great_lib
+some_great_lib.present ==  true
+some_great_lib.present ==  true
+[CommonModule.Properties] Some useful stuff here
+[CommonModule.Properties] Probe.found: false
 [CommonModule.condition] =  false
 CommonModule some_great_lib
 some_great_lib.present ==  true
-ololo1 using same Probe, but directly:  true
-Setting up build graph for configuration qt-5-4-ololo-debug
+
 

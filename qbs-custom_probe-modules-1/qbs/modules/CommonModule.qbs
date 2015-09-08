@@ -26,6 +26,7 @@ Module {
     Properties {
         condition: {
             print("[CommonModule.Properties] Some useful stuff here")
+            print("[CommonModule.Properties] Probe.found:", probe.found)
             return probe.found
         }
         cpp.includePaths: {

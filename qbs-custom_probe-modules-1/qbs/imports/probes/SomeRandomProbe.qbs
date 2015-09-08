@@ -5,15 +5,16 @@ Probe {
     property var probeName
     // Output
     property string wtf
-    // (Un)comment next line to use workaround
-    // property bool found
+    // (Un)comment next line to use/see workaround
+    property bool found
 
     configure: {
-        print("[SomeRandomProbe] found = ", typeof probeName !== "undefined")
+        // change this value
+        found = false
+        print("[SomeRandomProbe] found = ", found)
         print("[SomeRandomProbe] probeName =", probeName)
-        wtf = [1,2,3];
-        found = typeof probeName !== "undefined";
-        return found;
+
+        wtf = [1,2,3]; // just to test parameters
     }
 }
 

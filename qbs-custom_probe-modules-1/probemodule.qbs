@@ -5,7 +5,7 @@ Product {
     condition: {
         print("some_great_lib.present == ", some_great_lib.present)
 
-        print("ololo1 using same Probe, but directly: ", ololo1.found)
+        //print("ololo1 using same Probe, but directly: ", ololo1.found)
         return some_great_lib.present
     }
 	
@@ -19,8 +19,8 @@ Product {
         required: false
 	}
 
-    SomeRandomProbe {
+    /*SomeRandomProbe {
         id: ololo1
         probeName: "ololo1"
-    }
+    }*/
 }
